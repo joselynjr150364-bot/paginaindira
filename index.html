@@ -134,9 +134,7 @@ Ver galeria
 
 <div class="hero-image-frame">
 
-<a href="#products" class="buy-now-badge" data-es="Comprar ahora" data-en="Buy now">Buy now</a>
-
-<img src="images/quesillo1.png" alt="quesillo">
+<img src="images/venezuelan-quesillo-phoenix.jpg" alt="quesillo">
 
 </div>
 
@@ -160,18 +158,6 @@ FEATURES
 
 <p data-es="Sabemos que el ingrediente secreto es el amor, y es lo primero que añadimos a nuestra receta." data-en="We know the secret ingredient is love, and it's the first thing we add to our recipe.">
 Sabemos que el ingrediente secreto es el amor, y es lo primero que añadimos a nuestra receta.
-</p>
-
-</div>
-
-<div class="feature-card fade-up">
-
-<i class="fa-solid fa-truck"></i>
-
-<h3 data-es="Envio hasta a ti" data-en="Delivered to you">Envio hasta a ti</h3>
-
-<p data-es="Porque sabemos que un buen antojo no puede esperar, te lo llevamos directamente a casa a un costo accesible." data-en="Because a good craving can't wait, we bring it straight to your door at an affordable cost.">
-Porque sabemos que un buen antojo no puede esperar, te lo llevamos directamente a casa a un costo accesible.
 </p>
 
 </div>
@@ -228,7 +214,7 @@ Descubre el postre perfecto para compartir con tu familia o contigo mismo.
 
 <div class="product-image">
 
-<img src="images/quesilloindividual.jpg"
+<img src="images/venezuelan-quesillo-phoenix.jpg"
 alt="quesilloindividual">
 
 <span class="badge" data-es="Recomendado" data-en="Recommended">
@@ -280,7 +266,7 @@ Add to Cart
 
 <div class="product-image">
 
-<img src="images/minidocenadeflanes.jpg"
+<img src="images/quesillosss2.jpg"
 alt="Mini12">
 
 </div>
@@ -326,7 +312,7 @@ Add to Cart
 
 <div class="product-image">
 
-<img src="images/quesillofamiliar.jpg"
+<img src="images/quesillogrande.png"
 alt="QUESILLOFAMILIAR">
 
 </div>
@@ -377,9 +363,9 @@ Add to Cart
 
 <h2 data-es="Ingredientes principales" data-en="Main ingredients">Ingredientes principales</h2>
 
-<p data-es="Elaboramos nuestros quesillos con ingredientes frescos: leche, huevos y azúcar. Por tu seguridad, por favor revisa si tienes alguna alergia a estos componentes antes de realizar tu pedido." data-en="We make our quesillos with fresh ingredients: milk, eggs and sugar. For your safety, please check for allergies to these ingredients before placing your order.">
+<p data-es="Elaboramos nuestros quesillos con ingredientes frescos: leche, huevos y azúcar. Por tu seguridad, por favor revisa si tienes alguna alergia a estos componentes antes de realizar tu pedido." data-en="We make our quesillos with fresh ingredients: powered milk, eggs and sugar. For your safety, please check for allergies to these ingredients before placing your order.">
 
-Elaboramos nuestros quesillos con ingredientes frescos: leche, huevos y azúcar. Por tu seguridad, por favor revisa si tienes alguna alergia a estos componentes antes de realizar tu pedido.
+Elaboramos nuestros quesillos con ingredientes frescos: leche en polvo, huevos y azúcar. Por tu seguridad, por favor revisa si tienes alguna alergia a estos componentes antes de realizar tu pedido.
 
 </p>
 
@@ -569,6 +555,16 @@ Ideal para negocios y revendedores. Pedido mínimo de 20 unidades, con 24 horas 
 <li><span>100+ <span data-es="unidades" data-en="units">unidades</span></span><strong>$3.75 c/u</strong></li>
 </ul>
 
+<div class="quote-form">
+
+<label data-es="Cantidad" data-en="Quantity">Cantidad</label>
+
+<input type="number" class="quote-qty-input" id="quote-qty-4oz" min="20" step="1" placeholder="Ej. 50">
+
+<button type="button" class="btn-outline quote-add-btn" data-size="4oz" data-label="4 oz" data-es="Agregar a cotización" data-en="Add to quote">Agregar a cotización</button>
+
+</div>
+
 </div>
 
 <div class="pricing-card">
@@ -581,11 +577,44 @@ Ideal para negocios y revendedores. Pedido mínimo de 20 unidades, con 24 horas 
 <li><span>100+ <span data-es="unidades" data-en="units">unidades</span></span><strong>$5.75 c/u</strong></li>
 </ul>
 
+<div class="quote-form">
+
+<label data-es="Cantidad" data-en="Quantity">Cantidad</label>
+
+<input type="number" class="quote-qty-input" id="quote-qty-8oz" min="20" step="1" placeholder="Ej. 50">
+
+<button type="button" class="btn-outline quote-add-btn" data-size="8oz" data-label="8 oz" data-es="Agregar a cotización" data-en="Add to quote">Agregar a cotización</button>
+
+</div>
+
 </div>
 
 </div>
 
-<a href="#contact-section" class="btn-primary wholesale-cta" data-es="Solicitar cotización" data-en="Request a quote">Solicitar cotización</a>
+<div class="quote-summary fade-up" id="quote-summary">
+
+<h3 data-es="Tu cotización" data-en="Your quote">Tu cotización</h3>
+
+<div id="quote-items">
+
+<p class="quote-empty" data-es="Aún no has agregado nada. Elige una cantidad arriba y presiona 'Agregar a cotización'." data-en="You haven't added anything yet. Choose a quantity above and press 'Add to quote'.">Aún no has agregado nada. Elige una cantidad arriba y presiona "Agregar a cotización".</p>
+
+</div>
+
+<div class="quote-total-row">
+
+<span data-es="Total estimado" data-en="Estimated total">Total estimado</span>
+
+<h3>$<span id="quote-total">0.00</span></h3>
+
+</div>
+
+<button type="button" id="quote-whatsapp-btn" class="btn-primary" data-es="Enviar cotización por WhatsApp" data-en="Send quote via WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+Enviar cotización por WhatsApp
+</button>
+
+</div>
 
 </div>
 
@@ -672,7 +701,7 @@ En Indira's Kitchen creemos que un postre puede hacer mucho más que endulzar un
 
 </p>
 
-<p data-es="Como muchas familias inmigrantes, llegamos a Estados Unidos con el sueño de construir un mejor futuro para nuestros hijos, llevando con nosotros el mayor de nuestros tesoros: una receta familiar de auténtico quesillo venezolano, transmitida de generación en generación." data-en="Like many immigrant families, we came to the United States with the dream of building a better future for our children, bringing with us our greatest treasure: a family recipe for authentic Venezuelan quesillo, passed down from generation to generation.">
+<p data-es="Como muchas familias inmigrantes, llegamos a Estados Unidos con el sueño de construir un mejor futuro para nuestros hijos, llevando con nosotros el mayor de nuestros tesoros: una receta familiar de auténtico quesillo venezolano, uan receta familiar que ha pasado de generación en generación." data-en="Like many immigrant families, we came to the United States with the dream of building a better future for our children, bringing with us our greatest treasure: a family recipe for authentic Venezuelan quesillo, a recipe that has been passed down from generation to generation.">
 
 Como muchas familias inmigrantes, llegamos a Estados Unidos con el sueño de construir un mejor futuro para nuestros hijos, llevando con nosotros el mayor de nuestros tesoros: una receta familiar de auténtico quesillo venezolano, transmitida de generación en generación.
 
@@ -813,14 +842,14 @@ Echa un vistazo a nuestra cocina
 
 <div class="gallery-grid">
 
-<img class="fade-up" src="images/quesilogaleria1.jpg" alt="quesillogaleria">
-<img class="fade-up" src="images/quesillogaleriasss.png" alt="quesillogaleria2">
-<img class="fade-up" src="images/quesillogaleria3.jpg" alt="quesillogaleria3">
-<img class="fade-up" src="images/quesillogaleria4.png" alt="quesillogaleria4">
-<img class="fade-up" src="images/quesillogaleria5.png" alt="quesillogaleria5">
-<img class="fade-up" src="images/quesillogaleria2.jpg" alt="quesillogaleria6">
-<img class="fade-up" src="images/quesillogalerias.jpg" alt="quesillogaleria6">
-<img class="fade-up" src="images/quesillogaleria7.png" alt="quesillogaleria6">
+<img class="fade-up" src="images/quesillo-en-cualquier-evento.jpg" alt="quesillogaleria">
+<img class="fade-up" src="images/quesillo-mesaarizona.jpg" alt="quesillogaleria2">
+<img class="fade-up" src="images/venezuelan-quesillo-phoenix.jpg" alt="quesillogaleria3">
+<img class="fade-up" src="images/quesillogrande.png" alt="quesillogaleria4">
+<img class="fade-up" src="images/quesillosss2.jpg" alt="quesillogaleria5">
+<img class="fade-up" src="images/quesillominis.jpg" alt="quesillogaleria6">
+<img class="fade-up" src="images/quesillogaleria3.jpg" alt="quesillogaleria6">
+<img class="fade-up" src="images/quesillosss.png" alt="quesillogaleria6">
 
 </div>
 
@@ -873,7 +902,7 @@ Por que nuestros clientes nos eligen
 
 <img src="images/clientemasculino.png" alt="Customer">
 
-<h3>Carlos Gonzales</h3>
+<h3>Carlos Gonzalez</h3>
 
 <div class="stars">
 
@@ -915,7 +944,7 @@ Por que nuestros clientes nos eligen
 
 <img src="images/clientefemenino.png" alt="Customer">
 
-<h3>Nombre del cliente</h3>
+<h3>Smirna Perez</h3>
 
 <div class="stars">
 
@@ -925,7 +954,7 @@ Por que nuestros clientes nos eligen
 
 <p>
 
-"Escribe aquí la reseña del cliente."
+"Un sabor inigualable y atencion unica"
 
 </p>
 
@@ -935,9 +964,9 @@ Por que nuestros clientes nos eligen
 
 <div class="review-card fade-up">
 
-<img src="images/clientemasculino.png" alt="Customer">
+<img src="images/clientefemenino.png" alt="Customer">
 
-<h3>Nombre del cliente</h3>
+<h3>Diana Romero</h3>
 
 <div class="stars">
 
@@ -947,7 +976,7 @@ Por que nuestros clientes nos eligen
 
 <p>
 
-"Escribe aquí la reseña del cliente."
+"Muy sabroso su quesillo"
 
 </p>
 
@@ -1226,29 +1255,24 @@ Lo que comenzó como un sueño hace muchos años, hoy se ha transformado en un c
 
 <div class="social-icons">
 
-<a href="#">
+<a href="https://www.facebook.com/people/Indira-Kitchen/61579346738055/">
 
 <i class="fa-brands fa-facebook-f"></i>
 
 </a>
 
-<a href="#">
+<a href="https://www.instagram.com/indiraskitchen7729/">
 
 <i class="fa-brands fa-instagram"></i>
 
 </a>
 
-<a href="#">
+<a href="https://www.tiktok.com/@indiragonzalez26?_r=1&_t=ZP-97l0gQtEi91">
 
 <i class="fa-brands fa-tiktok"></i>
 
 </a>
 
-<a href="#">
-
-<i class="fa-brands fa-pinterest"></i>
-
-</a>
 
 </div>
 
