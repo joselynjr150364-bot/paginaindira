@@ -143,6 +143,137 @@ langToggleBtn.addEventListener("click", () => {
 
 
 //==============================
+// COTIZADOR AL MAYOREO
+//==============================
+
+const WHOLESALE_PRICING = {
+    "4oz": [
+        { min: 20, max: 49, price: 4.00 },
+        { min: 50, max: 99, price: 3.85 },
+        { min: 100, max: Infinity, price: 3.75 }
+    ],
+    "8oz": [
+        { min: 20, max: 49, price: 6.00 },
+        { min: 50, max: 99, price: 5.85 },
+        { min: 100, max: Infinity, price: 5.75 }
+    ]
+};
+
+let quoteItems = [];
+
+const quoteItemsContainer = document.getElementById("quote-items");
+const quoteTotalElement = document.getElementById("quote-total");
+const quoteAddButtons = document.querySelectorAll(".quote-add-btn");
+const quoteWhatsappBtn = document.getElementById("quote-whatsapp-btn");
+
+function getUnitPrice(size, qty) {
+    const tiers = WHOLESALE_PRICING[size];
+    const tier = tiers.find(t => qty >= t.min && qty <= t.max);
+    return tier ? tier.price : null;
+}
+
+quoteAddButtons.forEach(button => {
+    button.addEventListener("click", () => {
+
+        const size = button.dataset.size;
+        const label = button.dataset.label;
+        const input = document.getElementById(`quote-qty-${size}`);
+        const qty = parseInt(input.value, 10);
+
+        if (!qty || qty < 20) {
+            alert(currentLang === "en"
+                ? "Please enter a quantity of at least 20 units."
+                : "Por favor ingresa una cantidad mínima de 20 unidades.");
+            return;
+        }
+
+        const unitPrice = getUnitPrice(size, qty);
+
+        const existing = quoteItems.find(item => item.size === size);
+        if (existing) {
+            existing.qty = qty;
+            existing.unitPrice = unitPrice;
+        } else {
+            quoteItems.push({ size, label, qty, unitPrice });
+        }
+
+        input.value = "";
+        renderQuote();
+    });
+});
+
+function removeQuoteItem(size) {
+    quoteItems = quoteItems.filter(item => item.size !== size);
+    renderQuote();
+}
+
+function renderQuote() {
+
+    quoteItemsContainer.innerHTML = "";
+
+    if (quoteItems.length === 0) {
+        const emptyText = currentLang === "en"
+            ? "You haven't added anything yet. Choose a quantity above and press \"Add to quote\"."
+            : "Aún no has agregado nada. Elige una cantidad arriba y presiona \"Agregar a cotización\".";
+
+        quoteItemsContainer.innerHTML = `<p class="quote-empty">${emptyText}</p>`;
+        quoteTotalElement.textContent = "0.00";
+        return;
+    }
+
+    let total = 0;
+
+    quoteItems.forEach(item => {
+        const subtotal = item.qty * item.unitPrice;
+        total += subtotal;
+
+        const unitLabel = currentLang === "en" ? "units" : "unidades";
+
+        const line = document.createElement("div");
+        line.classList.add("quote-line-item");
+        line.innerHTML = `
+            <span class="quote-line-info">${item.label} &times; ${item.qty} ${unitLabel} ($${item.unitPrice.toFixed(2)} c/u)</span>
+            <span>
+                <strong>$${subtotal.toFixed(2)}</strong>
+                <button type="button" onclick="removeQuoteItem('${item.size}')">×</button>
+            </span>
+        `;
+        quoteItemsContainer.appendChild(line);
+    });
+
+    quoteTotalElement.textContent = total.toFixed(2);
+}
+
+if (quoteWhatsappBtn) {
+    quoteWhatsappBtn.addEventListener("click", () => {
+
+        if (quoteItems.length === 0) {
+            alert(currentLang === "en"
+                ? "Add at least one item to your quote first."
+                : "Primero agrega al menos un artículo a tu cotización.");
+            return;
+        }
+
+        let message = "Hola, me gustaria solicitar la siguiente cotizacion al mayoreo:%0A%0A";
+        let total = 0;
+
+        quoteItems.forEach(item => {
+            const subtotal = item.qty * item.unitPrice;
+            total += subtotal;
+            message += `- ${item.label} x${item.qty} unidades - $${subtotal.toFixed(2)}%0A`;
+        });
+
+        message += `%0ATotal estimado: $${total.toFixed(2)}`;
+
+        const phone = "14803437055";
+        const url = `https://wa.me/${phone}?text=${message}`;
+
+        window.open(url, "_blank");
+    });
+}
+
+
+//==============================
 // FORMULARIO DE CONTACTO EN LA PAGINA (Formspree)
 //==============================
 
